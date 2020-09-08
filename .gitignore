@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# tokens
+vscode-token-git.txt
+src/babel-command.txt
