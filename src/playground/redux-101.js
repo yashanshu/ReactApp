@@ -53,3 +53,10 @@ store.dispatch(resetCount());
 store.dispatch(setCount({ setValue: 300 }));
 
 unsubscribe();
+
+const user = {
+  name: Jen,
+  age: 30
+};
+
+console.log({...user});
