@@ -5,7 +5,7 @@ import AppRouter from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
 import { addExpense } from "./actions/expenses";
 import { setTextFilter } from "./actions/filters";
-import visibleExpenses from "./selectors/expenses";
+import getVisibleExpenses from "./selectors/expenses";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 
@@ -19,32 +19,22 @@ const store = configureStore();
 //   console.log(filteredExpenses);
 // });
 
-// addExpense water bill
+// Test data
 store.dispatch(addExpense({ description: "water bill", amount: 1000 }));
-
-// addExpense gas bill
-store.dispatch(addExpense({ description: "gas bill", amount: 23000 }));
-
-// addExpense gas bill
-store.dispatch(addExpense({ description: "rent", amount: 23000 }));
-
-// set text filter
-store.dispatch(setTextFilter("water"));
+store.dispatch(
+  addExpense({ description: "gas bill", amount: 23000, createdAt: 1000 })
+);
+store.dispatch(addExpense({ description: "water bill", amount: 109500 }));
 
 // print filtered data
-let state = store.getState();
-console.log(visibleExpenses(state.expenses, state.filters));
-
-store.dispatch(setTextFilter("bill"));
-
-// print filtered data
-state = store.getState();
-console.log(visibleExpenses(state.expenses, state.filters));
+const state = store.getState();
+const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+console.log(visibleExpenses);
 
 const jsx = (
-    <Provider store={store}>
-        <AppRouter />
-    </Provider>
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
 );
 
 ReactDOM.render(jsx, document.getElementById("app"));
