@@ -1,5 +1,5 @@
 {
-  "name": "Expensify",
+  "name": "expensify",
   "version": "1.0.0",
   "description": "learning",
   "main": "index.js",
@@ -8,7 +8,8 @@
   "scripts": {
     "serve": "live-server public --no-browser",
     "build": "webpack",
-    "dev-server": "webpack-dev-server"
+    "dev-server": "webpack-dev-server",
+    "test": "jest"
   },
   "dependencies": {
     "@babel/cli": "^7.10.5",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "eslint": "^7.7.0",
     "eslint-plugin-react": "^7.20.6",
+    "jest": "^26.4.2",
     "webpack-cli": "^3.3.12"
   }
 }
